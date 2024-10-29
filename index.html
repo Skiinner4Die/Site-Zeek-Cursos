@@ -29,15 +29,69 @@
 </head>
 
 <body>
-    <div id="header"></div>
-    <script>
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header').innerHTML = data;
-            })
-            .catch(error => console.error('Erro ao carregar o cabeçalho:', error));
-    </script>
+    <header>
+        <div class="container-cabecalho">
+            <nav class="navbar navbar-expand-lg pl-0 pr-0 col-one centralizar-menu">
+                <a class="navbar-brand wow fadeIn" href="index.html">
+                    <img src="./img/zeekLogo.png" class="logo-zeek" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+                    <span>
+                        <i class="fas fa-bars tamanho-menu"></i>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li>
+                            <a href="index.html" class="menus-cabecalho link wow fadeIn delay-01s"><b
+                                    class="titulo-cabecalho">HOME</b></a>
+                        </li>
+                        <li>
+                            <a href="sobreNos.html" class="menus-cabecalho link wow fadeIn delay-02s"><b
+                                    class="titulo-cabecalho">SOBRE
+                                    NÓS</b></a>
+                        </li>
+                        <li>
+                            <a href="cursos.html" class="menus-cabecalho link wow fadeIn delay-04s"><b
+                                    class="titulo-cabecalho">CURSOS</b></a>
+                        </li>
+                        <li>
+                            <a href="certificacoes.html" class="menus-cabecalho link wow fadeIn delay-05s"><b
+                                    class="titulo-cabecalho">CERTIFICAÇÕES</b></a>
+                        </li>
+                        <li>
+                            <a href="https://app3.evoluaeducacao.com.br/" target="_blank"
+                                onclick="window.open(this.href, 'newwindow', 'width=1200, height=600'); return false;"
+                                class="menus-cabecalho link wow fadeIn delay-05s"><b class="titulo-cabecalho">ÁREA DO
+                                    ALUNO</b></a>
+                        </li>
+                        <li>
+                            <a href="cruzeiroDoSul.html" class="menus-cabecalho link wow fadeIn delay-06s"><b
+                                    class="titulo-cabecalho">POLOS
+                                    CRUZEIRO DO
+                                    SUL</b></a>
+                        </li>
+                        <li>
+                            <a href="contato.html" class="menus-cabecalho link wow fadeIn delay-07s"><b
+                                    class="titulo-cabecalho">CONTATO</b></a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="javascript:void(0);" class="menus-cabecalho2 link wow fadeIn delay-08s"
+                    onclick="showSearchBox()">
+                    <i class="fas fa-search"></i>
+                </a>
+                <div id="searchBox" class="barra-pesquisa">
+                    <div class="flex-pesquisa">
+                        <input class="espaco-pesquisa" type="text" id="searchInput"
+                            placeholder="Digite para pesquisar...">
+                        <button class="botao-pesquisar" onclick="searchPage()"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </header>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -46,20 +100,14 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="./img/halloween.png" alt="Primeiro Slide">
+                <img class="d-block w-100" src="./img/AniversarioZeek.png" alt="Primeiro Slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="./img/promocaodiadascriancasnovo.png" alt="Primeiro Slide">
-            </div>
-            <div class="carousel-item">
-                <a href="blog.html">
-                <img class="d-block w-100" src="./img/avisoblog.png" alt="Segundo Slide">
-            </a>
+                <img class="d-block w-100" src="./img/comunicado.png" alt="Segundo Slide">
             </div>
             <div class="carousel-item">
                 <a href="excelAvancadoPowerBi.html">
@@ -93,16 +141,28 @@
     </div>
 
 
+    <div class="row">
+        <img src="./img/Contato/WhatsApppMaior.png" class="whats-contato wow fadeInRight delay-08s"
+            onclick="openWhatsModal()">
+    </div>
 
-
-    <div id="modal-propaganda" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img src="./img/modal-veterinaria.jpeg" alt="Propaganda" class="propaganda-imagem">
+    <!-- Modal para seleção de cidade -->
+    <div id="modal-whats-cidade" class="modal-whats-cidade">
+        <div class="modal-whats-cidade-content">
+            <span class="close" onclick="closeWhatsModal()">&times;</span>
+            <h2><b>Escolha a cidade:</b></h>
+                <button class="city-button" onclick="openWhatsApp('Descalvado')">Descalvado</button>
+                <button class="city-button" onclick="openWhatsApp('Ibaté')">Ibaté</button>
+                <button class="city-button" onclick="openWhatsApp('Ribeirão Bonito')">Ribeirão Bonito</button>
         </div>
     </div>
 
-
+    <div id="modal-propaganda" class="modal-propaganda">
+        <div class="modal-propaganda-content">
+            <span class="close-propaganda">&times;</span>
+            <img src="./img/modal-imagem.png" class="modal-imagem-propaganda">
+        </div>
+    </div>
 
 
 
@@ -111,56 +171,17 @@
             <b>ESCOLHA SUA PROFISSÃO</b>
         </h1>
     </div>
-
-
-
-
-
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css'>
-
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <a href="atendenteFarmacia.html" target="_blank">
-                    <img src="./img/Cursos/atendenteFarmacia.png" />
-                </a>
-            </div>
-            <div class="swiper-slide">
-                <a href="desenvolvimentoGamesStarter.html" target="_blank">
-                    <img src="./img/Cursos/desenvolvimentoGamesStarter.png" />
-                </a>
-            </div>
-            <div class="swiper-slide">
-                <a href="inglesJovens.html" target="_blank">
-                    <img src="./img/Cursos/inglesJovens.png" />
-                </a>
-            </div>
-            <div class="swiper-slide">
-                <a href="desenhistaPersonalCad.html" target="_blank">
-                    <img src="./img/Cursos/desenhistaPersonalCad.png" />
-                </a>
-            </div>
-            <div class="swiper-slide">
-                <a href="recursosHumanosDepartamentoPessoal.html" target="_blank">
-                    <img src="./img/Cursos/recursosHumanos.png" />
-                </a>
-            </div>
-        </div>
-
+    <div class="col-12 centralizar">
+        <a href="desenvolvimentoGamesStarter.html">
+            <img src="./img/Cursos/roboticaArduino.png" class="cursos-destaque wow fadeInLeft">
+        </a>
+        <a href="atendenteFarmacia.html">
+            <img src="./img/Cursos/auxiliarAdministrativo.png" class="cursos-destaque wow fadeInUp">
+        </a>
+        <a href="marketingDigital.html">
+            <img src="./img/Cursos/desenvolvedorSistemas.png" class="cursos-destaque wow fadeInRight">
+        </a>
     </div>
-    <script
-        src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js'></script>
-
-
-
-
-
-
-
-
-
     <div class="col-12 centralizar">
         <a href="cursos.html" class="link">
             <button class="botao wow fadeInDown">
@@ -168,12 +189,6 @@
             </button>
         </a>
     </div>
-
-    <div class="col-12 wow fadeIn centralizar">
-        <img src="./img/piramideDoSucesso.png" class="piramideDoSucesso">
-    </div>
-
-
     <div class="container centralizar">
         <div class="row">
             <div class="col-md-6">
@@ -549,8 +564,8 @@
                 <img src="./img/OndeVaiEstudar/descalvado1.jpg" class="thumbnail1" onclick="changeImage1(this)">
                 <img src="./img/OndeVaiEstudar/descalvado2.jpg" class="thumbnail1" onclick="changeImage1(this)">
                 <img src="./img/OndeVaiEstudar/descalvado3.jpg" class="thumbnail1" onclick="changeImage1(this)">
-                <img src="./img/OndeVaiEstudar/descalvado4.jpg" class="thumbnail1" onclick="changeImage1(this)">
-                <img src="./img/OndeVaiEstudar/descalvado5.jpg" class="thumbnail1" onclick="changeImage1(this)">
+                <img src="./img/OndeVaiEstudar/descalvado1.jpg" class="thumbnail1" onclick="changeImage1(this)">
+                <img src="./img/OndeVaiEstudar/descalvado2.jpg" class="thumbnail1" onclick="changeImage1(this)">
             </div>
         </div>
         <div class="col-md-4 borda-ibate">
@@ -564,8 +579,8 @@
                 <img src="./img/OndeVaiEstudar/ibate1.jpg" class="thumbnail2" onclick="changeImage2(this)">
                 <img src="./img/OndeVaiEstudar/ibate2.jpg" class="thumbnail2" onclick="changeImage2(this)">
                 <img src="./img/OndeVaiEstudar/ibate3.jpg" class="thumbnail2" onclick="changeImage2(this)">
-                <img src="./img/OndeVaiEstudar/ibate4.jpg" class="thumbnail2" onclick="changeImage2(this)">
-                <img src="./img/OndeVaiEstudar/ibate5.jpg" class="thumbnail2" onclick="changeImage2(this)">
+                <img src="./img/OndeVaiEstudar/ibate1.jpg" class="thumbnail2" onclick="changeImage2(this)">
+                <img src="./img/OndeVaiEstudar/ibate2.jpg" class="thumbnail2" onclick="changeImage2(this)">
             </div>
         </div>
         <div class="col-md-4 borda-ribeirao">
@@ -586,15 +601,94 @@
     </div>
 
 
-    <div id="footer"></div>
-    <script>
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer').innerHTML = data;
-            })
-            .catch(error => console.error('Erro ao carregar o rodapé:', error));
-    </script>
+    <footer class="rodape">
+        <div class="row centralizar">
+            <div class="col-md-4 wow fadeInUp">
+                <h1 class="text-white">DESCALVADO</h1><br>
+                <a href="https://maps.app.goo.gl/9F4GdX3nMCPKFCSY6" class="display-flex link-rodape" target="_blank">
+                    <img src="./img/Icones/maps.png" class="img-rodape">
+                    <h5>Rua Coronel Rafael Tobias, nº 284 <br> Centro - Descalvado/SP</h5>
+                </a><br>
+                <a href="https://wa.me/19992671617" class="display-flex link-rodape" target="_blank">
+                    <img src="./img/Icones/phone.png" class="img-rodape">
+                    <h5>(19) 99267-1617</h5>
+                </a><br>
+                <div class="display-flex centralizar-rodape">
+                    <a href="https://wa.me/19992671617" class="display-flex link-rodape" target="_blank">
+                        <img src="./img/Icones/whatsApp.png" class="img-rodape-social">
+                    </a>
+                    <a href="https://www.facebook.com/people/Zeek-Descalvado/pfbid0M8mMKPKpgyxzDXZ5BhFNNQkrUZ2KcD3YGah8L5RPdw6V8RnNYMteofnUhbGagj5jl/"
+                        class="display-flex link-rodape" target="_blank">
+                        <img src="./img/Icones/facebook.png" class="img-rodape-social">
+                    </a>
+                    <a href="https://www.instagram.com/zeekdescalvado/" class="display-flex link-rodape"
+                        target="_blank">
+                        <img src="./img/Icones/instagram.png" class="img-rodape-social">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 wow fadeInUp">
+                <h1 class="text-white">IBATÉ</h1><br>
+                <a href="https://maps.app.goo.gl/6nW9ofPvqVHc3vgj6" class="display-flex link-rodape" target="_blank">
+                    <img src="./img/Icones/maps.png" class="img-rodape">
+                    <h5>Rua Floriano Peixoto, nº 628 <br> Centro - Ibaté/SP</h5>
+                </a><br>
+                <a href="https://wa.me/16999921250" class="display-flex link-rodape" target="_blank">
+                    <img src="./img/Icones/phone.png" class="img-rodape">
+                    <h5>(16) 99992-1250</h5>
+                </a><br>
+                <div class="display-flex centralizar-rodape">
+                    <a href="https://wa.me/16999921250" class="display-flex link-rodape" target="_blank">
+                        <img src="./img/Icones/whatsApp.png" class="img-rodape-social">
+                    </a>
+                    <a href="https://www.facebook.com/zeekcursosibate" class="display-flex link-rodape" target="_blank">
+                        <img src="./img/Icones/facebook.png" class="img-rodape-social">
+                    </a>
+                    <a href="https://www.instagram.com/zeekibate/" class="display-flex link-rodape" target="_blank">
+                        <img src="./img/Icones/instagram.png" class="img-rodape-social">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 wow fadeInUp">
+                <h1 class="text-white">RIBEIRÃO BONITO</h1><br>
+                <a href="https://maps.app.goo.gl/5GPVn4SUHerbSWyi7" class="display-flex link-rodape" target="_blank">
+                    <img src="./img/Icones/maps.png" class="img-rodape">
+                    <h5>Rua São Paulo, nº 530 <br> Centro - Ribeirão Bonito/SP</h5>
+                </a><br>
+                <a href="https://wa.me/16999940880" class="display-flex link-rodape" target="_blank">
+                    <img src="./img/Icones/phone.png" class="img-rodape">
+                    <h5>(16) 99994-0880</h5>
+                </a><br>
+                <div class="display-flex centralizar-rodape">
+                    <a href="https://wa.me/16999940880" class="display-flex link-rodape" target="_blank">
+                        <img src="./img/Icones/whatsApp.png" class="img-rodape-social">
+                    </a>
+                    <a href="https://www.facebook.com/zeek.rb.5" class="display-flex link-rodape" target="_blank">
+                        <img src="./img/Icones/facebook.png" class="img-rodape-social">
+                    </a>
+                    <a href="https://www.instagram.com/zeekribeiraobonito/" class="display-flex link-rodape"
+                        target="_blank">
+                        <img src="./img/Icones/instagram.png" class="img-rodape-social">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row centralizar">
+            <div class="col-md-12">
+                <h1 class="desenvolvido-por wow fadeInDown delay-01s">Desenvolvido por: <br></h1>
+                <h1 class="desenvolvido-por wow fadeInDown delay-02s"><b>Elias Marcelino</b></h1>
+                <a href="https://wa.me/5516992228707" target="_blank" class="wow fadeInUp delay-04s">
+                    <img src="./img/Icones/whatsApp-white.png" class="icones-desenvolvido">
+                </a>
+                <a href="https://www.instagram.com/elias.silva99?igsh=NDN0Nm1ibHk4ZXBy" target="_blank"
+                    class="wow fadeInUp delay-04s">
+                    <img src="./img/Icones/instagram-white.png" class="icones-desenvolvido">
+                </a>
+            </div>
+        </div>
+    </footer>
 
     <script type="text/javascript" src="./js/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="./js/modernizr-3.5.0.min.js"></script>
@@ -613,15 +707,12 @@
     <script src="./js/contagemPolo.js"></script>
     <script src="./js/pesquisa.js"></script>
     <script src="./js/diferenciais.js"></script>
-    <script src="./js/carousel-cursos.js"></script>
-    <script src="./js/modalPropaganda.js"></script>
 
     <script>
         document.querySelector('.close-propaganda').onclick = function () {
             document.getElementById('modal-propaganda').style.display = 'none';
         };
     </script>
-    <script src="https://wbot.chat/index.js" token="fd40e925d254d789713b120c5d586428"></script>
 
 </body>
 
